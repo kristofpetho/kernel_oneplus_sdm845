@@ -75,11 +75,10 @@ void save_dump_reason_to_smem(char *info, char *function_name)
         strl = strl <  DUMP_REASON_SIZE ? strl: DUMP_REASON_SIZE;
         strl1 = strl1 <  DUMP_REASON_SIZE ? strl1: DUMP_REASON_SIZE ;
         if ((strlen(dp_info->dump_reason) + strl) < DUMP_REASON_SIZE)
-                strncat(dp_info->dump_reason,info,strl);
+                strncat(dp_info->dump_reason,info,sizeof(strl));
 
         if (function_name != NULL && ((strlen(dp_info->dump_reason) + strl1) < DUMP_REASON_SIZE)) {
-                strncat(dp_info->dump_reason,function_name,strl1);
-                strncat(dp_info->dump_reason,"\n",1);
+                strncat(dp_info->dump_reason,function_name,sizeof(strl1));
 	}
     }
     pr_err("\r%s: dump_reason : %s strl=%d function caused panic :%s strl1=%d \n", __func__,
@@ -314,10 +313,10 @@ static ssize_t component_info_get(struct device *dev,
         return snprintf(buf, BUF_SIZE, "VER:\t%s\nMANU:\t%s\n",
         get_component_version(SECOND_R_CAMERA),
         get_component_manufacture(SECOND_R_CAMERA));
-	if (attr == &dev_attr_ois)
-		return snprintf(buf, BUF_SIZE, "VER:\t%s\nMANU:\t%s\n",
-		get_component_version(OIS),
-		get_component_manufacture(OIS));
+    if (attr == &dev_attr_ois)
+	return snprintf(buf, BUF_SIZE, "VER:\t%s\nMANU:\t%s\n",
+	get_component_version(OIS),
+	get_component_manufacture(OIS));
     if (attr == &dev_attr_tp)
         return snprintf(buf, BUF_SIZE, "VER:\t%s\nMANU:\t%s\n",
         get_component_version(TP),
