@@ -4062,7 +4062,7 @@ retry:
 		return ret;
 
 	while (1) {
-		uint32_t cmd;
+		uint32_t cmd = 0;
 		struct binder_transaction_data tr;
 		struct binder_work *w = NULL;
 		struct list_head *list = NULL;
