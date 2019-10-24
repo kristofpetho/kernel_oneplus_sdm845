@@ -8,3 +8,5 @@ obj-y += boot_mode.o
 endif
 
 obj-y += coretech/
+
+CFLAGS_oem_trace.o += $(call cc-disable-warning, array-bounds)
