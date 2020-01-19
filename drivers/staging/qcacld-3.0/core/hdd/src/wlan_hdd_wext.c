@@ -12129,19 +12129,6 @@ int wlan_hdd_set_mon_chan(hdd_adapter_t *adapter, uint32_t chan,
 	return qdf_status_to_os_return(status);
 }
 
-static int printk_adapter(void *priv, const char *fmt, ...)
-{
-	int ret;
-	va_list args;
-
-	va_start(args, fmt);
-	ret = vprintk(fmt, args);
-	ret += printk("\n");
-	va_end(args);
-
-	return ret;
-}
-
 #ifdef WMI_INTERFACE_EVENT_LOGGING
 static void hdd_ioctl_log_buffer(int log_id, uint32_t count)
 {
