@@ -87,16 +87,16 @@ typedef PREPACK struct {
 
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 3, 0))
 /* TODO Cleanup this backported function */
-static int qcacld_bp_seq_printf(struct seq_file *m, const char *f, ...)
-{
-	va_list args;
-
-	va_start(args, f);
-	seq_printf(m, f, args);
-	va_end(args);
-
-	return m->count;
-}
+// static int qcacld_bp_seq_printf(struct seq_file *m, const char *f, ...)
+// {
+//	va_list args;
+//
+//	va_start(args, f);
+//	seq_printf(m, f, args);
+//	va_end(args);
+//
+//	return m->count;
+// }
 
 #define seq_printf(m, fmt, ...) qcacld_bp_seq_printf((m), fmt, ##__VA_ARGS__)
 #endif
