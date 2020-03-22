@@ -693,6 +693,3 @@ CONFIG_CRYPTO_LZ4=y
 # end
 # jaredwu,2019/7/8,add for fg i/o identification
 CONFIG_ONEPLUS_FG_OPT=y
-# dylanchang, 2019/4/30, enable noop io scheduler
-CONFIG_DEFAULT_NOOP=y
-CONFIG_DEFAULT_IOSCHED="noop"
