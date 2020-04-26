@@ -3600,7 +3600,7 @@ void __hdd_indicate_mgmt_frame(hdd_adapter_t *adapter, uint32_t frm_len,
 	uint16_t freq;
 	uint8_t type = 0;
 	uint8_t sub_type = 0;
-	enum action_frm_type frm_type;
+	enum action_frm_type frm_type = 0;
 	hdd_cfg80211_state_t *cfg_state;
 	hdd_context_t *hdd_ctx;
 	uint8_t broadcast = 0;

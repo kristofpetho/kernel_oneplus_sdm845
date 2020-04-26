@@ -6810,7 +6810,7 @@ int wlan_hdd_update_phymode(struct net_device *net, tHalHandle hal,
 #endif
 	bool band_24 = false, band_5g = false;
 	bool ch_bond24 = false, ch_bond5g = false;
-	tSmeConfigParams *sme_config;
+	tSmeConfigParams *sme_config = NULL;
 	uint32_t chwidth = WNI_CFG_CHANNEL_BONDING_MODE_DISABLE;
 	uint32_t vhtchanwidth;
 	eCsrPhyMode phymode = -EIO, old_phymode;
@@ -12124,6 +12124,7 @@ int wlan_hdd_set_mon_chan(hdd_adapter_t *adapter, uint32_t chan,
 	return qdf_status_to_os_return(status);
 }
 
+# if 0
 static int printk_adapter(void *priv, const char *fmt, ...)
 {
 	int ret;
@@ -12136,6 +12137,7 @@ static int printk_adapter(void *priv, const char *fmt, ...)
 
 	return ret;
 }
+#endif
 
 #ifdef WMI_INTERFACE_EVENT_LOGGING
 static void hdd_ioctl_log_buffer(int log_id, uint32_t count)
