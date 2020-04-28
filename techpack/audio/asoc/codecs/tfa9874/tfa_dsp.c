@@ -3089,7 +3089,7 @@ enum tfa_error tfa_dev_stop(struct tfa_device *tfa)
 	err = tfa98xx_aec_output(tfa, 0);
 
 	while ((TFA_GET_BF(tfa, MANSTATE) != 0) && (times++ < 20)) {
-		pr_info("tfa stop wait state machine goto powerdown mode.\n");
+		pr_debug("tfa stop wait state machine goto powerdown mode.\n");
 		err = tfa98xx_dsp_system_stable(tfa, &ready);
 		if (err != Tfa98xx_Error_Ok || !ready) {
 			pr_err("tfa stop: No I2S CLK\n");
