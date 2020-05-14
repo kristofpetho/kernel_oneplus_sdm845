@@ -6749,7 +6749,7 @@ int op_get_charg_en(struct smb_charger *chg, int *chg_enabled)
 
 static void op_check_charger_collapse(struct smb_charger *chg)
 {
-	int rc, is_usb_supend, curr, chg_en;
+	int rc, is_usb_supend = 0, curr, chg_en = 0;
 	u8 stat = 0, chger_stat = 0, pwer_source_stats = 0;
 
 	if (!chg->vbus_present)
